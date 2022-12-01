@@ -16,6 +16,7 @@ interface IHistoricalData {
 interface IChartProps {
   coinId: string;
 }
+
 function Chart({ coinId }: IChartProps) {
   const { isLoading, data: priceData } = useQuery<IHistoricalData[]>(
     ["ohlcv", coinId],
@@ -39,7 +40,24 @@ function Chart({ coinId }: IChartProps) {
             stroke: { curve: "smooth", width: 4 },
             grid: { show: false },
             yaxis: { show: false },
-            xaxis: { labels: { show: false } },
+            xaxis: {
+              labels: { show: false },
+              type: "datetime",
+              categories: priceData?.map((price) => price.time_close),
+            },
+            fill: {
+              type: "gradient",
+              gradient: {
+                gradientToColors: ["#0be881"],
+                stops: [0, 100],
+              },
+            },
+            colors: ["#0fbcf9"],
+            tooltip: {
+              y: {
+                formatter: (value) => `$${value.toFixed(2)}`,
+              },
+            },
           }}
           series={[
             {
