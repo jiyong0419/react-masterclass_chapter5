@@ -90,6 +90,12 @@ const Header = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  a {
+    position: absolute;
+    translate: 0 5px;
+    left: 5%;
+  }
 `;
 const Title = styled.h1`
   font-size: 48px;
@@ -140,6 +146,21 @@ const Tab = styled.span<{ isActive: boolean }>`
     display: block;
   }
 `;
+const HomeBtn = styled.button`
+  width: 30px;
+  height: 30px;
+  background-color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 50%;
+  span {
+    font-weight: 600;
+    font-size: 10px;
+  }
+`;
 
 function Coin() {
   const { coinId } = useParams<ICoin>();
@@ -164,6 +185,11 @@ function Coin() {
         </title>
       </Helmet>
       <Header>
+        <Link to={"/"}>
+          <HomeBtn>
+            <span> Home </span>
+          </HomeBtn>
+        </Link>
         <Title>
           {state?.name ? state.name : loading ? "Loading..." : coinInfo?.name}
         </Title>

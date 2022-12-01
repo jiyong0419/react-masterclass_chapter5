@@ -41,6 +41,9 @@ function Chart({ coinId }: IChartProps) {
             grid: { show: false },
             yaxis: { show: false },
             xaxis: {
+              axisTicks: {
+                show: false,
+              },
               labels: { show: false },
               type: "datetime",
               categories: priceData?.map((price) => price.time_close),
