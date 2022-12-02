@@ -107,7 +107,8 @@ const Loader = styled.div`
 const Overview = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: ${(props) => props.theme.oppositeColor};
+  color: ${(props) => props.theme.mainColor};
   padding: 10px 20px;
   border-radius: 10px;
 `;
@@ -125,6 +126,8 @@ const OverviewItem = styled.div`
 `;
 const Description = styled.p`
   margin: 20px 0px;
+  color: ${(props) => props.theme.oppositeColor};
+  line-height: 18px;
 `;
 const Tabs = styled.div`
   display: grid;
@@ -137,7 +140,7 @@ const Tab = styled.span<{ isActive: boolean }>`
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 400;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: ${(props) => props.theme.oppositeColor};
   padding: 7px 0px;
   border-radius: 10px;
   color: ${(props) =>
@@ -147,9 +150,9 @@ const Tab = styled.span<{ isActive: boolean }>`
   }
 `;
 const HomeBtn = styled.button`
-  width: 30px;
-  height: 30px;
-  background-color: white;
+  width: 35px;
+  height: 35px;
+  background-color: ${(props) => props.theme.oppositeColor};
 
   display: flex;
   justify-content: center;
@@ -159,6 +162,7 @@ const HomeBtn = styled.button`
   span {
     font-weight: 600;
     font-size: 10px;
+    color: ${(props) => props.theme.mainColor};
   }
 `;
 
