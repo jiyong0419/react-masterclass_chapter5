@@ -60,6 +60,7 @@ function Chart({ coinId }: IChartProps) {
             },
             colors: ["#0fbcf9"],
             tooltip: {
+              x: { show: true },
               y: {
                 formatter: (value) => `$${value.toFixed(2)}`,
               },
